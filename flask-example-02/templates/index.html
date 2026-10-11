@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block titulo %}{{ titulo }}{% endblock %}
+
+{% block conteudo %}
+  <h1>{{ titulo }}</h1>
+
+  <a href="{{ url_for('novo_recado') }}" class="btn btn-primary mb-3">Novo recado</a>
+
+  <ul class="list-group">
+    {% for recado in recados %}
+      <li class="list-group-item {% if recado.concluido %}list-group-item-success{% endif %}">
+        {% if recado.concluido %}
+          {{ recado.texto }}&nbsp;&nbsp;<span class="badge bg-success">concluído</span>&nbsp;&nbsp;<a href="{{ url_for('remove_recado') }}?id={{ recado.id }}"><span class="badge bg-danger">remover</span></a>
+        {% else %}
+		  {{ recado.texto }}&nbsp;&nbsp;<a href="recado?id={{ recado.id }}"><span class="badge bg-warning">detalhes</span></a>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+
+  {% if not recados %}
+    <p>Nenhum recado cadastrado ainda.</p>
+  {% endif %}
+{% endblock %}

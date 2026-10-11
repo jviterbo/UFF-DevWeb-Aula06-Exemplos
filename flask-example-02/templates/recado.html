@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block titulo %}Recado: {{ recado.texto }}{% endblock %}
+
+{% block conteudo %}
+  <h1>{{ recado.texto }}</h1>
+
+  <h2>Descrição:</h2>
+
+  <p>{{ recado.descr }}</p>
+
+  {% if recado.concluido %}
+    <span class="badge bg-success">concluído</span>
+  {% else %}
+	<a href="{{ url_for('conclui_recado') }}?id={{ recado.id }}" class="btn btn-primary mb-3">Marcar como concluído</a>&nbsp;&nbsp;
+	<a href="{{ url_for('remove_recado') }}?id={{ recado.id }}" class="btn btn-danger mb-3">Remover recado</a>&nbsp;&nbsp;
+	<a href="{{ url_for('index') }}" class="btn btn-success mb-3">Voltar</a>
+  {% endif %}
+
+{% endblock %}
