@@ -1,0 +1,13 @@
+# Ambiente virtual (cada aluno cria o seu com: python -m venv venv)
+venv/
+.venv/
+
+# Cache do Python
+__pycache__/
+*.pyc
+
+# Arquivos de editores / sistema
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
