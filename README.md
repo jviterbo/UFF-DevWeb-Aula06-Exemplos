@@ -1,6 +1,6 @@
 # Lista de Recados — Exemplo da Aula 06 (Flask + Jinja2 + Flask-WTF)
 
-Aplicação web de exemplo utilizada na **Aula 06 – Templates Dinâmicos com Jinja2 & Herança de Layout** da disciplina **Introdução ao Desenvolvimento Web** (Instituto de Computação – UFF).
+Aplicação web de exemplo utilizada na **Aula 06** da disciplina **Introdução ao Desenvolvimento Web**: **Templates Dinâmicos com Jinja2 & Herança de Layout** (no Instituto de Computação – UFF).
 
 Ela reúne, em um único projeto pequeno e executável, os conceitos vistos em aula:
 
@@ -23,11 +23,10 @@ Ela reúne, em um único projeto pequeno e executável, os conceitos vistos em a
 6. [Onde cada conceito da aula aparece no código](#6-onde-cada-conceito-da-aula-aparece-no-código)
 7. [Roteiro para explorar a aplicação](#7-roteiro-para-explorar-a-aplicação)
 8. [Pontos de atenção (limitações didáticas)](#8-pontos-de-atenção-limitações-didáticas)
-9. [Exercícios propostos](#9-exercícios-propostos)
-10. [Problemas comuns](#10-problemas-comuns)
-11. [Tecnologias e versões](#11-tecnologias-e-versões)
-12. [Referências](#12-referências)
-13. [Licença](#13-licença)
+9. [Problemas comuns](#10-problemas-comuns)
+10. [Tecnologias e versões](#11-tecnologias-e-versões)
+11. [Referências](#12-referências)
+12. [Licença](#13-licença)
 
 ---
 
@@ -274,7 +273,7 @@ Experimente, nesta ordem, observando o que acontece na tela **e** no terminal on
 
 ## 8. Pontos de atenção (limitações didáticas)
 
-Este exemplo foi escrito para ser **simples**, e por isso tem limitações propositais. Elas são boas oportunidades de discussão em sala e serão tratadas nas próximas aulas:
+Este exemplo foi escrito para ser **simples**, e por isso tem limitações propositais. Algumas dessas limitações serão tratadas nas próximas aulas:
 
 - **Dados em memória.** A lista `recados` é uma variável global compartilhada por todos os usuários e é perdida ao reiniciar o servidor (relembre as *variáveis de aplicação* da Aula 05). A persistência real vem na **Aula 07**, com SQLite.
 - **Alterações de estado via `GET`.** As rotas `/conclui` e `/remove` modificam dados, mas respondem a `GET`. Na prática, ações que alteram dados devem usar `POST`, pois um simples link (ou um robô de busca) poderia disparar a remoção.
@@ -286,30 +285,7 @@ Este exemplo foi escrito para ser **simples**, e por isso tem limitações propo
 
 ---
 
-## 9. Exercícios propostos
-
-**Básicos**
-
-1. Em `recado.html`, recados **concluídos** exibem apenas o selo e nenhum botão. Adicione um botão **Voltar** também nesse caso.
-2. Altere o título da navbar e a cor de fundo (`bg-dark` → outra classe do Bootstrap) em `base.html`. Quantos arquivos você precisou editar?
-3. Em `index.html`, exiba o número de recados na lista usando `{{ recados|length }}`.
-4. Crie uma página **Sobre** (rota `/sobre` e template `sobre.html`) que estenda `base.html`, e adicione um link para ela na navbar.
-
-**Intermediários**
-
-5. Acrescente ao `RecadoForm` um campo `prioridade` (`SelectField` com as opções *Baixa*, *Média* e *Alta*), guarde o valor no dicionário e mostre-o na tela de detalhes.
-6. Acrescente a validação `Length(min=3)` ao título e mostre as mensagens de erro em português (parâmetro `message=` dos validadores).
-7. Trate o parâmetro `id` ausente ou inexistente em `/recado`, devolvendo um erro `404` com `abort(404)`.
-8. Em `index.html`, mostre os recados **pendentes** primeiro e os concluídos depois, usando dois laços `{% for %}` com `{% if %}`.
-
-**Desafios**
-
-9. Troque as rotas com query string por **rotas com parâmetro na URL** (por exemplo, `/recado/<int:id>`), ajustando `url_for()` nos templates. *(Prepara a Aula 07.)*
-10. Transforme `/conclui` e `/remove` em rotas que aceitem apenas `POST`, usando pequenos formulários com botão no lugar dos links. *(Atenção ao token CSRF.)*
-
----
-
-## 10. Problemas comuns
+## 9. Problemas de execução comuns
 
 | Sintoma | Causa provável e solução |
 |---------|--------------------------|
@@ -324,7 +300,7 @@ Este exemplo foi escrito para ser **simples**, e por isso tem limitações propo
 
 ---
 
-## 11. Tecnologias e versões
+## 10. Tecnologias e versões
 
 | Tecnologia | Versão | Papel |
 |------------|--------|-------|
@@ -337,7 +313,7 @@ Este exemplo foi escrito para ser **simples**, e por isso tem limitações propo
 
 ---
 
-## 12. Referências
+## 11. Referências
 
 - [Documentação do Flask](https://flask.palletsprojects.com/)
 - [Documentação do Jinja2 — Template Designer](https://jinja.palletsprojects.com/en/stable/templates/)
@@ -348,6 +324,6 @@ Este exemplo foi escrito para ser **simples**, e por isso tem limitações propo
 
 ---
 
-## 13. Licença
+## 12. Licença
 
 Este projeto é distribuído sob a licença **GNU GPL v3.0**. Consulte o arquivo [`LICENSE`](LICENSE) para os detalhes.
